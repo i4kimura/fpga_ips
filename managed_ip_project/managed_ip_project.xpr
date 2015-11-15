@@ -52,26 +52,6 @@
         <Option Name="SrcSet" Val="sources_1"/>
       </Config>
     </FileSet>
-    <FileSet Name="axi_dram_128bit" Type="BlockSrcs" RelSrcDir="$PSRCDIR/axi_dram_128bit">
-      <File Path="$PPRDIR/../axi_dram_128bit.xcix">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../axi_dram_128bit/axi_dram_128bit.xci">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="TopModule" Val="axi_dram_128bit"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="pulsar1_connect" Type="BlockSrcs" RelSrcDir="$PSRCDIR/pulsar1_connect">
       <File Path="$PPRDIR/../pulsar1_connect.xcix">
         <FileInfo>
@@ -89,6 +69,26 @@
       </File>
       <Config>
         <Option Name="TopModule" Val="pulsar1_connect"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="axi_dram_128bit" Type="BlockSrcs" RelSrcDir="$PSRCDIR/axi_dram_128bit">
+      <File Path="$PPRDIR/../axi_dram_128bit.xcix">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../axi_dram_128bit/axi_dram_128bit.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="axi_dram_128bit"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -121,16 +121,14 @@
         <Step Id="synth_design"/>
       </Strategy>
     </Run>
-    <Run Id="axi_dram_128bit_synth_1" Type="Ft3:Synth" SrcSet="axi_dram_128bit" Part="xc7z020clg484-1" ConstrsSet="axi_dram_128bit" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/axi_dram_128bit_synth_1" IncludeInArchive="true">
+    <Run Id="pulsar1_connect_synth_1" Type="Ft3:Synth" SrcSet="pulsar1_connect" Part="xc7z020clg484-1" ConstrsSet="pulsar1_connect" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/pulsar1_connect_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
     </Run>
-    <Run Id="pulsar1_connect_synth_1" Type="Ft3:Synth" SrcSet="pulsar1_connect" Part="xc7z020clg484-1" ConstrsSet="pulsar1_connect" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/pulsar1_connect_synth_1" IncludeInArchive="true">
+    <Run Id="axi_dram_128bit_synth_1" Type="Ft3:Synth" SrcSet="axi_dram_128bit" Part="xc7z020clg484-1" ConstrsSet="axi_dram_128bit" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/axi_dram_128bit_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015">
           <Desc>Vivado Synthesis Defaults</Desc>
@@ -153,11 +151,9 @@
         <Step Id="write_bitstream"/>
       </Strategy>
     </Run>
-    <Run Id="axi_dram_128bit_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="axi_dram_128bit" Description="Vivado Implementation Defaults" SynthRun="axi_dram_128bit_synth_1" IncludeInArchive="true">
+    <Run Id="pulsar1_connect_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="pulsar1_connect" Description="Vivado Implementation Defaults" SynthRun="pulsar1_connect_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015">
-          <Desc>Vivado Implementation Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -169,7 +165,7 @@
         <Step Id="write_bitstream"/>
       </Strategy>
     </Run>
-    <Run Id="pulsar1_connect_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="pulsar1_connect" Description="Vivado Implementation Defaults" SynthRun="pulsar1_connect_synth_1" IncludeInArchive="true">
+    <Run Id="axi_dram_128bit_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="axi_dram_128bit" Description="Vivado Implementation Defaults" SynthRun="axi_dram_128bit_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015">
           <Desc>Vivado Implementation Defaults</Desc>
